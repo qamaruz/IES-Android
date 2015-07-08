@@ -1,0 +1,31 @@
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".MainActivity"
+        android:id="@+id/qamaruz"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+    <WebView  xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/webview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_weight="1"
+        />
+    <!--<Button
+        style="?android:attr/buttonStyleSmall"
+        android:id="@+id/notification_option"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="My Button!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        />-->
+
+</FrameLayout>
+
+
+
+
