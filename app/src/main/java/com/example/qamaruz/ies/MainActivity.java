@@ -71,13 +71,38 @@ public class MainActivity extends Activity {
             }
         });
         /*END LOAD PAGE IN APP */
-
-
-
         //mWebView.setWebChromeClient(new WebChromeClient());//for extra functions
         //this.setContentView(mWebView);
         //showNotification();
     }
+
+    public void onStart(Bundle savedInstanceState) {
+        /*BEGIN CACHING FOR OFFLINE ACCESS*/
+        mWebView.getSettings().setAppCacheMaxSize(5 * 1024 * 1024); // 5MB
+        mWebView.getSettings().setAppCachePath(getApplicationContext().getCacheDir().getAbsolutePath());
+        mWebView.getSettings().setAllowFileAccess(true);
+        mWebView.getSettings().setAppCacheEnabled(true);
+        mWebView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT); // load online by default
+        if (!isNetworkAvailable()) { // loading offline
+            mWebView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        }
+        /*END CACHING FOR OFFLINE ACCESS*/
+    }
+    public void onResume(Bundle savedInstanceState) {
+         /*BEGIN CACHING FOR OFFLINE ACCESS*/
+        mWebView.getSettings().setAppCacheMaxSize(5 * 1024 * 1024); // 5MB
+        mWebView.getSettings().setAppCachePath(getApplicationContext().getCacheDir().getAbsolutePath());
+        mWebView.getSettings().setAllowFileAccess(true);
+        mWebView.getSettings().setAppCacheEnabled(true);
+        mWebView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT); // load online by default
+        if (!isNetworkAvailable()) { // loading offline
+            mWebView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        }
+        /*END CACHING FOR OFFLINE ACCESS*/
+
+
+    }
+
     /*BEGIN CHECK INTERNET CONNECTION METHOD*/
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService( CONNECTIVITY_SERVICE );
